@@ -32,7 +32,6 @@ export default function LotteryEntrance() {
         msgValue: entranceFee,
         params: {},
     })
-
     /* View Functions */
 
     const { runContractFunction: getEntranceFee } = useWeb3Contract({
@@ -110,11 +109,12 @@ export default function LotteryEntrance() {
                     <div className={'text-center py-2'}>
                         <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto"
-                            onClick={async () =>
+                            onClick={async () =>{
                                 await enterRaffle({
                                     onSuccess: handleSuccess,
                                     onError: (error) => console.log(error),
                                 })
+                            }
                             }
                             disabled={isLoading || isFetching}
                         >

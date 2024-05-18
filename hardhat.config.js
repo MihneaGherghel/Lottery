@@ -19,6 +19,7 @@ module.exports = {
     hardhat:{
       chainId: 31337,
       blockConfirmations:1,
+      port:8545
     },
     sepolia:{
       chainId:11155111,
