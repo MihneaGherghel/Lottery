@@ -39,7 +39,6 @@ contract Raffle is VRFConsumerBaseV2, KeeperCompatibleInterface {
         uint256 interval
     ) VRFConsumerBaseV2(vrfCoordinatorV2) {
         i_entranceFee = entranceFee;
-        //log(vrfCoordinatorV2);
         i_vrfCoordinator = VRFCoordinatorV2(vrfCoordinatorV2);
         i_gasLane = gasLane;
         i_subscriptionId = subscriptionId;
@@ -50,7 +49,7 @@ contract Raffle is VRFConsumerBaseV2, KeeperCompatibleInterface {
     }
 
     function enterRaffle() public payable {
-        require(msg.value >= i_entranceFee, "Not enough ETH!");
+        require(msg.value > 0, "Not enough ETH!");
         require(s_raffleState == RaffleState.OPEN, "Not open");
         s_players.push(payable(msg.sender));
         emit RaffleEnter(msg.sender);

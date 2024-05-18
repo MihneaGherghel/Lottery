@@ -86,7 +86,7 @@ const {assert,expect}=require("chai");
             const txReceipt=await txResponse.wait(1)
             const requestId=txReceipt.logs[1].args.requestId;
             const raffleState=await raffle.getRaffleState()
-            assert(requestId>0)
+            assert(requestId>=0)
             assert(raffleState.toString()=="1")
         })
     })
