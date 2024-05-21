@@ -49,8 +49,8 @@ contract Raffle is VRFConsumerBaseV2, KeeperCompatibleInterface {
     }
 
     function enterRaffle() public payable {
-        //require(msg.value > 0, "Not enough ETH!");
-        //require(s_raffleState == RaffleState.OPEN, "Not open");
+        require(msg.value > 0, "Not enough ETH!");
+        require(s_raffleState == RaffleState.OPEN, "Not open");
         s_players.push(payable(msg.sender));
         emit RaffleEnter(msg.sender);
     }

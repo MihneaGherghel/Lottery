@@ -38,6 +38,7 @@ module.exports=async function({getNamedAccounts,deployments}){
         log:true,
         waitConfirmation:network.config.blockConfirmations|| 1,
     });
+    const abi = JSON.stringify(raffle.abi);
     if(developmentChains.includes(network.name)){
         await VRFCoordinatorV2Mock.addConsumer(subscriptionId, raffle.address)
     }
